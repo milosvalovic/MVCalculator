@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="vm"
+            type="sk.valovic.calculator.MainViewModel" />
+    </data>
+
+    <androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgournd_color"
+        android:padding="@dimen/box_inset_layout_padding"
+        tools:context=".MainActivity"
+        tools:deviceIds="wear">
+
+        <carbon.widget.LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_boxedEdges="all">
+
+            <carbon.widget.TextView
+                android:id="@+id/display"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@color/general_forgournd_color"
+                android:ellipsize="end"
+                android:fadeScrollbars="false"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingHorizontal="2dp"
+                android:paddingVertical="2dp"
+                android:scrollbars="horizontal"
+                android:scrollHorizontally="true"
+                android:text="@{vm.displayedText}"
+                android:textAlignment="textEnd"
+                android:textColor="@color/backgournd_color"
+                android:textSize="18sp"
+                app:carbon_font="@font/fredoka_regular" />
+
+            <carbon.widget.LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:background="@color/backgournd_color"
+                app:orientation="horizontal">
+
+                <include
+                    android:id="@+id/clear"
+                    layout="@layout/button"
+                    android:onClick="@{() -> vm.clearDisplray()}"
+                    app:textColor="@{@color/general_red_color}"
+                    app:textContent="@{@string/clear}" />
+
+                <include
+                    android:id="@+id/devide"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("÷")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/devider}" />
+
+                <include
+                    android:id="@+id/multiplication"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("×")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/multiplication}" />
+
+                <include
+                    android:id="@+id/minus"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("-")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/minus}" />
+
+            </carbon.widget.LinearLayout>
+
+            <carbon.widget.LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/backgournd_color"
+                app:orientation="horizontal">
+
+                <include
+                    android:id="@+id/seven"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("7")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/seven}" />
+
+                <include
+                    android:id="@+id/eight"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("8")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/eight}" />
+
+                <include
+                    android:id="@+id/nine"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("9")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/nine}" />
+
+                <include
+                    android:id="@+id/plus"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("+")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/plus}" />
+
+            </carbon.widget.LinearLayout>
+
+            <carbon.widget.LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/backgournd_color"
+                app:orientation="horizontal">
+
+                <include
+                    android:id="@+id/four"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("4")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/four}" />
+
+                <include
+                    android:id="@+id/five"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("5")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/five}" />
+
+                <include
+                    android:id="@+id/six"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("6")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/six}" />
+
+                <include
+                    android:id="@+id/delete"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.deleteLast()}'
+                    app:textColor="@{@color/general_red_color}"
+                    app:textContent="@{@string/delete}" />
+
+            </carbon.widget.LinearLayout>
+
+            <carbon.widget.LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/backgournd_color"
+                app:orientation="horizontal">
+
+                <include
+                    android:id="@+id/one"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("1")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/one}" />
+
+                <include
+                    android:id="@+id/two"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("2")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/two}" />
+
+                <include
+                    android:id="@+id/three"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("3")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/three}" />
+
+                <include
+                    android:id="@+id/equels"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.calculate()}'
+                    app:textColor="@{@color/general_green_color}"
+                    app:textContent="@{@string/equels}" />
+
+            </carbon.widget.LinearLayout>
+
+            <carbon.widget.LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/backgournd_color"
+                app:orientation="horizontal">
+
+                <include
+                    android:id="@+id/left_parenthesis"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("(")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/left_parenthesis}" />
+
+                <include
+                    android:id="@+id/zero"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol("0")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/zero}" />
+
+                <include
+                    android:id="@+id/right_parenthesis"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol(")")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/right_parenthesis}" />
+
+                <include
+                    android:id="@+id/decimal"
+                    layout="@layout/button"
+                    android:onClick='@{() -> vm.addSymbol(".")}'
+                    app:textColor="@{@color/general_forgournd_color}"
+                    app:textContent="@{@string/decimal}" />
+
+            </carbon.widget.LinearLayout>
+
+        </carbon.widget.LinearLayout>
+    </androidx.wear.widget.BoxInsetLayout>
+</layout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="textContent"
+            type="String" />
+        <variable
+            name="textColor"
+            type="Integer" />
+    </data>
+<carbon.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="2dp"
+    android:layout_marginVertical="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_weight="1"
+    android:clickable="true"
+    app:carbon_stroke="@color/general_forgournd_color"
+    app:carbon_strokeWidth="1dp"
+    android:background="?android:attr/selectableItemBackground"
+    app:carbon_cornerRadius="6dp">
+
+    <carbon.widget.TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:carbon_font="@font/fredoka_regular"
+        android:includeFontPadding="false"
+        android:textSize="11sp"
+        android:text="@{textContent}"
+        android:textColor="@{textColor}"/>
+
+</carbon.widget.RelativeLayout>
+</layout>

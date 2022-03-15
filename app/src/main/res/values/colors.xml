@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="backgournd_color">#FF000000</color>
+    <color name="general_forgournd_color">#FFFFFF</color>general_red_color
+    <color name="general_red_color">#C40000</color>
+    <color name="general_green_color">#00C42a</color>
+</resources>
