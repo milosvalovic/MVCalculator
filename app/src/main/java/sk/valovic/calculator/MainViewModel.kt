@@ -1,7 +1,11 @@
 package sk.valovic.calculator
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.util.Log
+import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
@@ -42,6 +46,14 @@ class MainViewModel(
             }
             state.set("isCalculated", false)
         }
+    }
+
+    fun copyToClipBoard(){
+        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip: ClipData = ClipData.newPlainText("Calculator text", displayedText.value)
+
+        clipboard.setPrimaryClip(clip)
+        Toast.makeText(context,"Copied",Toast.LENGTH_SHORT).show()
     }
 
 }

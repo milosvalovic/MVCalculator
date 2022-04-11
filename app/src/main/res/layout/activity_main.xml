@@ -24,25 +24,49 @@
             android:orientation="vertical"
             app:layout_boxedEdges="all">
 
+            <carbon.widget.RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+
+
             <carbon.widget.TextView
                 android:id="@+id/display"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
                 android:background="@color/general_forgournd_color"
                 android:ellipsize="end"
                 android:fadeScrollbars="false"
                 android:lines="1"
                 android:maxLines="1"
                 android:paddingHorizontal="2dp"
-                android:paddingVertical="2dp"
                 android:scrollbars="horizontal"
                 android:scrollHorizontally="true"
                 android:text="@{vm.displayedText}"
                 android:textAlignment="textEnd"
                 android:textColor="@color/backgournd_color"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 app:carbon_font="@font/fredoka_regular" />
+
+                <carbon.widget.RelativeLayout
+                    android:id="@+id/copy"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_centerVertical="true"
+                    app:carbon_cornerRadius="6dp"
+                    android:onClick="@{() -> vm.copyToClipBoard()}"
+                    android:background="@color/copy_backgournd_color"
+                    android:layout_marginStart="5dp">
+
+                    <carbon.widget.ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="3dp"
+                        android:src="@drawable/copy"/>
+
+                </carbon.widget.RelativeLayout>
+            </carbon.widget.RelativeLayout>
 
             <carbon.widget.LinearLayout
                 android:layout_width="match_parent"
